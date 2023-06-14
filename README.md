@@ -7,12 +7,15 @@ Purpose is to save into BigQuery tables on a hourly basis football odds from Pin
 
 ### Extract Phase
 Thanks to a private access to Pinnacle API, odds can be retrieved through classical HTTP GET requests.
+The Extract is triggered with a Cloud Scheduler trigger every hour
 
 ### Transform Phase
 The transform phase consists in aggregating some dates formats, this is not yet really advanced.
+This is perform in the Cloud Function as well.
 
 ### Load Phase
 The loading phase consists in creating (if not already existing) the BigQuery tables and load the data into it. 
+Loading phase is done in the Cloud Function as well
 
 ## NB:
 The code in this repo won't show all the steps needed to make it work.  
